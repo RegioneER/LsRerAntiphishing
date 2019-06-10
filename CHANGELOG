@@ -1,3 +1,9 @@
 # Changelog
 
-## TODO
+## v0.1.0
+
+First DOM XML PHP Extension implementation
+
+## v0.2.0
+
+Adding `CHTMLPurifier` support, ready made inside Limesurvey's YII framework
