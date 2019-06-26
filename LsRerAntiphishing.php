@@ -3,7 +3,7 @@
  * Plugin LimeSurvey Rer Antiphishing
  *
  * @author "Pierluigi Tassi" <pierluigi.tassi@regione.emilia-romagna.it>
- * @license "MIT
+ * @license "MIT"
  * @version 0.2.0
  */
 
@@ -21,7 +21,7 @@ class LsRerAntiphishing extends PluginBase
      */
     public function init()
     {
-        $this->subscribe('beforeActivate');
+//        $this->subscribe('beforeActivate');
         $this->subscribe('beforeEmail');
         $this->subscribe('beforeTokenEmail');
     }
@@ -60,6 +60,7 @@ class LsRerAntiphishing extends PluginBase
         $htmlpurifier->setOptions([
             'Core.EscapeNonASCIICharacters' => true,
             'AutoFormat.DisplayLinkURI' => true,
+            'CSS.AllowTricky' => false,
         ]);
         $body = $htmlpurifier->purify($body);
 
