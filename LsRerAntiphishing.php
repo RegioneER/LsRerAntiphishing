@@ -1,18 +1,9 @@
 <?php
-/**
- * Plugin LimeSurvey Rer Antiphishing
- *
- * @author "Pierluigi Tassi" <pierluigi.tassi@regione.emilia-romagna.it>
- * @license "MIT"
- * @version 0.2.0
- */
 
-use LimeSurvey\PluginManager\PluginBase;
-
-class LsRerAntiphishing extends PluginBase
+class LsRerAntiphishing extends \LimeSurvey\PluginManager\PluginBase
 {
 
-    static protected $name = 'Rer Antiphishing';
+    static protected $name = 'Rer: Antiphishing';
     static protected $description = 'Limesurvey plugin hardening against phishing';
 
     /**
@@ -21,7 +12,6 @@ class LsRerAntiphishing extends PluginBase
      */
     public function init()
     {
-//        $this->subscribe('beforeActivate');
         $this->subscribe('beforeEmail');
         $this->subscribe('beforeTokenEmail');
     }
@@ -30,15 +20,6 @@ class LsRerAntiphishing extends PluginBase
      * Hooks to Events
      *
      */
-    public function beforeActivate()
-    {
-        if (extension_loaded('dom') == false) {
-            $event  = $this->getEvent();
-            $event->set('message', 'DOM extension is missing in your PHP configuration. This plugin can\'be activated.');
-            $event->set('success', false);
-        }
-    }
-
     public function beforeEmail()
     {
         $this->_antiphishing();
@@ -55,31 +36,32 @@ class LsRerAntiphishing extends PluginBase
      */
     private function _antiphishing()
     {
-        $body = $this->event->get('body');
-        $htmlpurifier = new CHtmlPurifier;
-        $htmlpurifier->setOptions([
+
+        $sBody = $this->event->get('body');
+        $oPurifier = new \CHtmlPurifier();
+        $oPurifier->setOptions([
             'Core.EscapeNonASCIICharacters' => true,
             'AutoFormat.DisplayLinkURI' => true,
             'CSS.AllowTricky' => false,
         ]);
-        $body = $htmlpurifier->purify($body);
+        $sBody = $oPurifier->purify($sBody);
+        $sBody = preg_replace('%<a>https?:\/\/.*<\/a>%', '',$sBody);
+        $this->log($sBody, 'debug');
+        $this->event->set('body', $sBody);
+    }
 
-        if (extension_loaded('dom')) {
-            libxml_use_internal_errors(true);
-            $dom = new DOMDocument;
-            $dom->loadHTML($body);
-            foreach ($dom->getElementsByTagName('a') as $aElement) {
-                if ($aElement->hasAttribute('href') == true) {
-                    $aElement->nodeValue = htmlspecialchars($aElement->nodeValue);
-                    $sElement = $dom->createElement('span');
-                    $sElement->textContent = sprintf('[%s](%s)', $aElement->getAttribute('href'), htmlspecialchars($aElement->nodeValue));
-                    $aElement->parentNode->replaceChild($sElement, $aElement);
-                }
-            }
-            $body = $dom->saveHTML();
+
+    /**
+     * @inheritdoc
+     * Adding message to vardump if user activate debug mode
+     * Use default plugin log too
+     */
+    public function log($message, $level = \CLogger::LEVEL_TRACE)
+    {
+        if(is_callable("parent::log")) {
+            parent::log($message, $level);
         }
-
-        $this->event->set('body', $body);
+        Yii::log("[".get_class($this)."] ".$message, $level, 'vardump');
     }
 
 } // end: class
