@@ -38,16 +38,21 @@ class LsRerAntiphishing extends \LimeSurvey\PluginManager\PluginBase
     {
 
         $sBody = $this->event->get('body');
-        $oPurifier = new \CHtmlPurifier();
-        $oPurifier->setOptions([
-            'Core.EscapeNonASCIICharacters' => true,
-            'AutoFormat.DisplayLinkURI' => true,
-            'CSS.AllowTricky' => false,
-        ]);
-        $sBody = $oPurifier->purify($sBody);
-        $sBody = preg_replace('%<a>https?:\/\/.*<\/a>%', '',$sBody);
-        $this->log($sBody, 'debug');
-        $this->event->set('body', $sBody);
+
+        // Running HtmlPurifier only in case of htmlemail setting On
+        if ('Y' == Survey::model()->find('sid='.$this->event->get('survey'))->htmlemail) 
+        {
+            $oPurifier = new \CHtmlPurifier();
+            $oPurifier->setOptions([
+                'Core.EscapeNonASCIICharacters' => true,
+                'AutoFormat.DisplayLinkURI' => true,
+                'CSS.AllowTricky' => false,
+            ]);
+            $sBody = $oPurifier->purify($sBody);
+            $sBody = preg_replace('%<a>https?:\/\/.*<\/a>%', '',$sBody);
+            $this->log($sBody, 'debug');
+            $this->event->set('body', $sBody);    
+        }
     }
 
 
