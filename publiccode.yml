@@ -1,0 +1,73 @@
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: "0.2"
+categories:
+  - communications
+  - security
+  - antiphishing
+dependsOn:
+  open:
+    - name: Limesurvey
+      optional: false
+      version: ""
+      versionMax: ""
+      versionMin: ">= 3.0"
+description:
+  it:
+    features:
+      - correzione links html
+      - miglioramento della sicurezza
+    genericName: Plugin
+    longDescription: |
+      Questo plugin per Limesurvey, quando attivato tramite l'interfaccia di attivazione dei plugin,
+      si inserisce automaticamente nella funzione di generazione delle notifiche mail,
+      corregge il testo html rimuovendo i link forgiati dall'amministratore di questionari
+      e sostituendoli con una rappresentazione testuale.
+
+      Il link così composto risulta chiaramente leggibile all'interno della mail html.
+      In questo modo è possibile evitare la presenza di link malevoli all'interno delle mail
+      che vengono spedite tramite Limesurvey ai partecipanti dei questionari.
+
+      La correzione avviene anche decodificando e rimuovendo caratteri speciali unicode
+      che potrebbero indurre il client a rappresentare erroneamente i testi e tag html.
+
+      Nel caso in cui sia impostata la spedizione di email in formato semplice "plain-text",
+      la funzionalità non agisce, mantenendo invariate le URL incluse nel testo dei messaggi.
+    shortDescription: |-
+      Questo plugin per Limesurvey riscrive le URL nei link html inclusi nelle mail spedite tramite il software.
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: false
+  countryExtensionVersion: "0.2"
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: MIT
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: true
+maintenance:
+  contacts:
+    - affiliation: Regione Emilia-Romagna
+    - email: webmaster@regione.emilia-romagna.it
+      name: Sara Turra
+  type: community
+name: Limesurvey Antiphishing
+platforms:
+  - web
+releaseDate: "2019-05-31"
+softwareType: addon
+url: "https://github.com/RegioneER/LsRerAntiphishing"
+usedBy:
+  - Regione Emilia-Romagna
