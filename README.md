@@ -1,20 +1,24 @@
-# Limesurvey Rer Antiphishing plugin
+# Limesurvey Antiphishing plugin
 
-This [Limesurvey](https://limesurvey.org) plugin removes `<a href=""></a>` formats plain text URIs found inside email templates.
+[![Catalogo del riuso software](https://img.shields.io/badge/Riuso%20AGID-Software-%230076e3)](https://developers.italia.it/it/pa/r_emiro)
 
-That means all emails sent by your Limesurvey installation can’t be forged as phishing by malicious «Survey Managers»
+This [Limesurvey](https://limesurvey.org) plugin `<a href=""></a>` links from HTML mails sent by survey admins. Then formats URIs in plain-text.
 
-The plugin acts silently when mails are sent, replacing all links with textual inline rapresentations. 
+This plugin has no interface, acts silently when mails are sent, replacing all links with textual inline rapresentations.
 
 ## Technical info
 
 This Limesurvey plugin leverages Yii framework using `CHTMLPurifier` class, configured for securing non-ascii codes and converting `href` attributes in plain texts.
 
-For additional security, in second instance we run a custom crafted functionality based on *PHP DOM Extension*.
+For additional security, in second instance we run a custom crafted functionality based on _PHP DOM Extension_.
+
+When the survey is not configured for HTML mails, the plugin simply doesn't run.
 
 ## Installation
 
-Just checkout this repository inside the `plugins` directory.
+Just checkout this repository inside the `plugins` directory or download it as a zip file, then extract.
+
+Login into your Limesurvey administration panel and visit "Plugin Configuration" page and enable the plugin.
 
 ## Version
 

@@ -1,9 +1,12 @@
 # Changelog
 
-## v0.1.0
-
-First DOM XML PHP Extension implementation
+## v0.3.0
+Skipping functionality when survey HTML mails are switched off.
 
 ## v0.2.0
 
-Adding `CHTMLPurifier` support, ready made inside Limesurvey's YII framework
+Adding `CHTMLPurifier` support, ready made inside Limesurvey's YII framework.
+
+## v0.1.0
+
+First DOM XML PHP Extension implementation.
