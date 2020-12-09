@@ -5,8 +5,8 @@
 publiccodeYmlVersion: "0.2"
 categories:
   - communications
-  - security
-  - antiphishing
+  - survey
+  - it-security
 dependsOn:
   open:
     - name: Limesurvey
@@ -60,7 +60,7 @@ localisation:
 maintenance:
   contacts:
     - affiliation: Regione Emilia-Romagna
-    - email: webmaster@regione.emilia-romagna.it
+      email: webmaster@regione.emilia-romagna.it
       name: Sara Turra
   type: community
 name: Limesurvey Antiphishing
