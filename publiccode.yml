@@ -3,6 +3,7 @@
 # More info at https://github.com/italia/publiccode.yml
 
 publiccodeYmlVersion: "0.2"
+applicationSuite: Limesurvey
 categories:
   - communications
   - survey
@@ -20,23 +21,64 @@ description:
       - correzione links html
       - miglioramento della sicurezza
     genericName: Plugin
+    localisedName: Limesurvey Antiphishing Plugin
     longDescription: |
-      Questo plugin per Limesurvey, quando attivato tramite l'interfaccia di attivazione dei plugin,
-      si inserisce automaticamente nella funzione di generazione delle notifiche mail,
-      corregge il testo html rimuovendo i link forgiati dall'amministratore di questionari
+      Questo plugin per Limesurvey, quando attivato tramite l'interfaccia di
+
+      attivazione dei plugin,
+
+
+      si inserisce automaticamente nella funzione di generazione delle notifiche
+
+      mail,
+
+
+      corregge il testo html rimuovendo i link forgiati dall'amministratore di
+
+      questionari
+
+
       e sostituendoli con una rappresentazione testuale.
 
-      Il link così composto risulta chiaramente leggibile all'interno della mail html.
-      In questo modo è possibile evitare la presenza di link malevoli all'interno delle mail
+
+
+      Il link così composto risulta chiaramente leggibile all'interno della mail
+
+      html.
+
+
+      In questo modo è possibile evitare la presenza di link malevoli
+
+      all'interno delle mail
+
+
       che vengono spedite tramite Limesurvey ai partecipanti dei questionari.
 
-      La correzione avviene anche decodificando e rimuovendo caratteri speciali unicode
-      che potrebbero indurre il client a rappresentare erroneamente i testi e tag html.
 
-      Nel caso in cui sia impostata la spedizione di email in formato semplice "plain-text",
-      la funzionalità non agisce, mantenendo invariate le URL incluse nel testo dei messaggi.
+
+      La correzione avviene anche decodificando e rimuovendo caratteri speciali
+
+      unicode
+
+
+      che potrebbero indurre il client a rappresentare erroneamente i testi e
+
+      tag html.
+
+
+
+      Nel caso in cui sia impostata la spedizione di email in formato semplice
+
+      "plain-text",
+
+
+      la funzionalità non agisce, mantenendo invariate le URL incluse nel testo
+
+      dei messaggi.
     shortDescription: |-
-      Questo plugin per Limesurvey riscrive le URL nei link html inclusi nelle mail spedite tramite il software.
+      Questo plugin per Limesurvey riscrive le URL nei link html inclusi nelle
+
+      mail spedite tramite il software.
 developmentStatus: stable
 it:
   conforme:
@@ -50,6 +92,8 @@ it:
     cie: false
     pagopa: false
     spid: false
+  riuso:
+    codiceIPA: r_emiro
 legal:
   license: MIT
 localisation:
@@ -63,11 +107,12 @@ maintenance:
       email: webmaster@regione.emilia-romagna.it
       name: Sara Turra
   type: community
-name: Limesurvey Antiphishing
+name: LsRerAntiphishing
 platforms:
   - web
 releaseDate: "2019-05-31"
 softwareType: addon
+softwareVersion: "0.3"
 url: "https://github.com/RegioneER/LsRerAntiphishing"
 usedBy:
   - Regione Emilia-Romagna
