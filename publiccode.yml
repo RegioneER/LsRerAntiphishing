@@ -25,11 +25,15 @@ description:
     longDescription: |
       Questo plugin per Limesurvey, quando attivato tramite l'interfaccia di attivazione dei plugin, si inserisce automaticamente nella funzione di generazione delle notifiche mail, corregge il testo html rimuovendo i link forgiati dall'amministratore di questionari, sostituendoli con una rappresentazione testuale.
 
+
       Il link, così composto, risulta chiaramente leggibile all'interno della mail html evitando frantendimenti anche involontari all'utilizzatore.
+
 
       In questo modo è possibile evitare la presenza di link malevoli all'interno delle mail che vengono spedite tramite Limesurvey ai partecipanti dei questionari.
 
+
       La correzione avviene anche decodificando e rimuovendo caratteri speciali unicode che potrebbero indurre il client a rappresentare erroneamente i testi e tag html.
+
 
       Nel caso in cui sia impostata la spedizione di email in formato semplice "plain-text", la funzionalità non agisce, mantenendo invariate le URL incluse nel testo dei messaggi.
     shortDescription: |-
