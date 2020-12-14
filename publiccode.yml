@@ -23,62 +23,17 @@ description:
     genericName: Plugin
     localisedName: Limesurvey Antiphishing Plugin
     longDescription: |
-      Questo plugin per Limesurvey, quando attivato tramite l'interfaccia di
+      Questo plugin per Limesurvey, quando attivato tramite l'interfaccia di attivazione dei plugin, si inserisce automaticamente nella funzione di generazione delle notifiche mail, corregge il testo html rimuovendo i link forgiati dall'amministratore di questionari, sostituendoli con una rappresentazione testuale.
 
-      attivazione dei plugin,
+      Il link, così composto, risulta chiaramente leggibile all'interno della mail html evitando frantendimenti anche involontari all'utilizzatore.
 
+      In questo modo è possibile evitare la presenza di link malevoli all'interno delle mail che vengono spedite tramite Limesurvey ai partecipanti dei questionari.
 
-      si inserisce automaticamente nella funzione di generazione delle notifiche
+      La correzione avviene anche decodificando e rimuovendo caratteri speciali unicode che potrebbero indurre il client a rappresentare erroneamente i testi e tag html.
 
-      mail,
-
-
-      corregge il testo html rimuovendo i link forgiati dall'amministratore di
-
-      questionari
-
-
-      e sostituendoli con una rappresentazione testuale.
-
-
-
-      Il link così composto risulta chiaramente leggibile all'interno della mail
-
-      html.
-
-
-      In questo modo è possibile evitare la presenza di link malevoli
-
-      all'interno delle mail
-
-
-      che vengono spedite tramite Limesurvey ai partecipanti dei questionari.
-
-
-
-      La correzione avviene anche decodificando e rimuovendo caratteri speciali
-
-      unicode
-
-
-      che potrebbero indurre il client a rappresentare erroneamente i testi e
-
-      tag html.
-
-
-
-      Nel caso in cui sia impostata la spedizione di email in formato semplice
-
-      "plain-text",
-
-
-      la funzionalità non agisce, mantenendo invariate le URL incluse nel testo
-
-      dei messaggi.
+      Nel caso in cui sia impostata la spedizione di email in formato semplice "plain-text", la funzionalità non agisce, mantenendo invariate le URL incluse nel testo dei messaggi.
     shortDescription: |-
-      Questo plugin per Limesurvey riscrive le URL nei link html inclusi nelle
-
-      mail spedite tramite il software.
+      Questo plugin per Limesurvey riscrive le URL nei link html inclusi nelle mail spedite ai partecipanti
 developmentStatus: stable
 it:
   conforme:
