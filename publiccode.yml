@@ -22,6 +22,9 @@ description:
       - miglioramento della sicurezza
     genericName: Plugin
     localisedName: Limesurvey Antiphishing Plugin
+    screenshots:
+      - |-
+        i/lsantiphishing-social.png
     longDescription: |
       Questo plugin per Limesurvey, quando attivato tramite l'interfaccia di attivazione dei plugin, si inserisce automaticamente nella funzione di generazione delle notifiche mail, corregge il testo html rimuovendo i link forgiati dall'amministratore di questionari, sostituendoli con una rappresentazione testuale.
 
